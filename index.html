@@ -1,252 +1,213 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    body {background-color: #fff9f2}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: #0000e9}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: #0000e9; min-height: 15.0px}
-    span.s1 {font-kerning: none}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Gurukul Essence – Yoga & Therapy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fffaf1;
+      color: #3b2f23;
+    }
+    header {
+      border-top: 5px solid #7a3e3e;
+      border-bottom: 2px solid #7a3e3e;
+      background: #fff;
+    }
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand img {
+      height: 65px;
+      border-radius: 4px;
+    }
+    .brand span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #4b2c1a;
+      text-transform: uppercase;
+    }
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .menu a {
+      text-decoration: none;
+      color: #3b2f23;
+      font-weight: 600;
+    }
+    .menu a:hover {
+      color: #7a3e3e;
+    }
+    .hero {
+      height: 90vh;
+      background: url('background.jpeg') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(1px);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 2rem;
+      color: #fff;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin: 0;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      font-weight: 300;
+    }
+    section {
+      max-width: 960px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    section p, section ul {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #7a3e3e;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    footer {
+      border-top: 2px solid #7a3e3e;
+      background: #f8f4ec;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #6b4b30;
+    }
+    .contact-icons {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .contact-icons a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3b2f23;
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;The Gurukul Essence – Yoga &amp; Therapy&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>html { scroll-behavior: smooth; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: 'Inter', sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #fffaf1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #3b2f23;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>header {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-top: 5px solid #7a3e3e;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-bottom: 2px solid #7a3e3e;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>nav {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 1200px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>justify-content: space-between;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 1rem 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.brand {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.brand img {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 65px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 4px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.brand span {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: 'Playfair Display', serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.7rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: bold;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #4b2c1a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.menu {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.menu a {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #3b2f23;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.menu a:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #7a3e3e;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.hero {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 90vh;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: url('background.jpeg') center/cover no-repeat;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.hero::before {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>content: "";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: absolute;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>inset: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: rgba(0,0,0,0.25);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(1px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.hero-content {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 2;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.hero-content h1 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: 'Playfair Display', serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 3rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.hero-content p {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 300;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>section {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 960px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 4rem auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>section h2 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: 'Playfair Display', serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>section p, section ul {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.05rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>line-height: 1.7;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ul {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding-left: 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: inline-block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #7a3e3e;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0.6rem 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 500;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>footer {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-top: 2px solid #7a3e3e;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #f8f4ec;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #6b4b30;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.contact-icons {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.contact-icons a {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 500;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #3b2f23;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;header&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="brand"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;img src="logo.jpg" alt="Logo"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span&gt;The Gurukul Essence&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="menu"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#about"&gt;About&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#therapy"&gt;Therapy&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#philosophy"&gt;Philosophy&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#experience"&gt;Experience&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#reviews"&gt;Reviews&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#contact"&gt;Contact&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section class="hero" id="home"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="hero-content"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h1&gt;Ancient Wisdom. Modern Healing 🌿&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;Yoga therapy &amp; transformation rooted in the Guru–Shishya tradition&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section id="about"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;About Us&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;&lt;strong&gt;The Gurukul Essence&lt;/strong&gt; revives the timeless practice of Traditional Yoga through the sacred Guru–Shishya bond. Here, Yoga is not taught — it is transmitted, lived, and internalized through presence and guidance.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section id="therapy"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Yoga Therapy&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Personalized therapeutic sessions for healing chronic pain, stress, anxiety, digestive issues, and lifestyle imbalances. Each session is crafted with ancient techniques tailored to individual needs.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section id="philosophy"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Philosophy&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Inspired by Patanjali’s Yoga Sutras, Ashtanga Yoga, and timeless Himalayan lineages — our approach honors inner transformation over outer performance.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section id="experience"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Experience&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;li&gt;ONGC Academy (Dehradun)&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;li&gt;The Terraces Resort (Kanatal)&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;li&gt;Doon Valley International School&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;li&gt;Rana Farms Club&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;li&gt;Online and In-person Yoga Therapy for all ages&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section id="reviews"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Student Testimonials&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;“Sessions with The Gurukul Essence are not just yoga — they are a return to one’s center.”&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;“Deepank ji’s healing approach helped me balance my lifestyle and inner calm.”&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section id="contact"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Contact &amp; Booking&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Start your healing journey or inquire about programs:&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="contact-icons"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="mailto:deepank.yog@gmail.com"&gt;📧 Email&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="https://wa.me/919045769190" target="_blank"&gt;📱 WhatsApp&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;a href="https://instagram.com/thegurukulessence" target="_blank"&gt;📷 Instagram&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&amp;copy; 2025 The Gurukul Essence – All Rights Reserved</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+  <header>
+    <nav>
+      <div class="brand">
+        <img src="logo.jpg" alt="Logo">
+        <span>The Gurukul Essence</span>
+      </div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#therapy">Therapy</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#experience">Experience</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Ancient Wisdom. Modern Healing 🌿</h1>
+      <p>Yoga therapy & transformation rooted in the Guru–Shishya tradition</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p><strong>The Gurukul Essence</strong> revives the timeless practice of Traditional Yoga through the sacred Guru–Shishya bond. Here, Yoga is not taught — it is transmitted, lived, and internalized through presence and guidance.</p>
+  </section>
+
+  <section id="therapy">
+    <h2>Yoga Therapy</h2>
+    <p>Personalized therapeutic sessions for healing chronic pain, stress, anxiety, digestive issues, and lifestyle imbalances. Each session is crafted with ancient techniques tailored to individual needs.</p>
+  </section>
+
+  <section id="philosophy">
+    <h2>Philosophy</h2>
+    <p>Inspired by Patanjali’s Yoga Sutras, Ashtanga Yoga, and timeless Himalayan lineages — our approach honors inner transformation over outer performance.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul>
+      <li>ONGC Academy (Dehradun)</li>
+      <li>The Terraces Resort (Kanatal)</li>
+      <li>Doon Valley International School</li>
+      <li>Rana Farms Club</li>
+      <li>Online and In-person Yoga Therapy for all ages</li>
+    </ul>
+  </section>
+
+  <section id="reviews">
+    <h2>Student Testimonials</h2>
+    <p>“Sessions with The Gurukul Essence are not just yoga — they are a return to one’s center.”</p>
+    <p>“Deepank ji’s healing approach helped me balance my lifestyle and inner calm.”</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Booking</h2>
+    <p>Start your healing journey or inquire about programs:</p>
+    <div class="contact-icons">
+      <a href="mailto:deepank.yog@gmail.com">📧 Email</a>
+      <a href="https://wa.me/919045769190" target="_blank">📱 WhatsApp</a>
+      <a href="https://instagram.com/thegurukulessence" target="_blank">📷 Instagram</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 The Gurukul Essence – All Rights Reserved
+  </footer>
+
 </body>
 </html>
