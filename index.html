@@ -2,183 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Gurukul Essence – Yoga & Therapy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRUzF4Bnh3H/2l9vv+vEHC+GRhjg0/0Yk7+OzXKjU+fWkGJstBxqRZfsYbRZWoklyG+j5hQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"/>
   <style>
     html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: 'Inter', sans-serif; background: #fffaf5; color: #3b2f23; }
-    header { position: sticky; top: 0; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: all 0.3s ease; }
-    nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2rem; max-width: 1200px; margin: auto; flex-wrap: wrap;
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fffaf1;
+      color: #3b2f23;
     }
-    nav .nav-links {
-  display: none;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 1rem;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 0.4s ease;
-  align-items: flex-end;
-  text-align: right;
-}
-    nav .nav-links.show {
-  display: flex;
-  opacity: 1;
-  transform: translateX(0);
-}
-    nav .nav-links a {
-      padding: 0.5rem 0; font-weight: 600; color: #3b2f23; text-decoration: none;
+
+    header {
+      border-top: 5px solid #7a3e3e;
+      border-bottom: 2px solid #7a3e3e;
+      padding: 1rem 2rem;
+      background: #fff;
     }
-    nav .nav-links a:hover { color: #6b4b30; }
-    nav .toggle-menu {
-      cursor: pointer; font-size: 1.5rem; transition: transform 0.3s;
+
+    .header-brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
     }
-    nav .toggle-menu:hover { transform: scale(1.1); }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-left img {
+      height: 65px;
+      border-radius: 4px;
+    }
+
+    .brand-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      margin: 0;
+      color: #4b2c1a;
+    }
+
+    .contact-info {
+      font-size: 0.95rem;
+      text-align: right;
+      color: #6b4b30;
+    }
 
     .hero {
-      position: relative; height: 100vh;
+      height: 90vh;
       background: url('background.jpeg') center/cover no-repeat;
-      background-size: cover;
-      display: flex; justify-content: center; align-items: center;
-      flex-direction: column; text-align: center;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
+
     .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(0, 0, 0, 0.25); backdrop-filter: blur(1px); z-index: 1;
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(1px);
+      z-index: 1;
     }
+
     .hero-content {
-      position: relative; z-index: 2; padding: 0 2rem;
-      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index: 2;
+      padding: 0 2rem;
+      color: #fff;
     }
-    .hero h1 {
+
+    .hero-content h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 4rem; color: #fff; margin-bottom: 1rem; letter-spacing: 1px;
-    }
-    .hero p {
-      font-size: 1.3rem; color: #f7f1e3; font-weight: 300;
+      font-size: 3rem;
+      margin: 0;
     }
 
-    section {
-      max-width: 960px; margin: 4rem auto; padding: 2rem;
-      opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out;
-    }
-    section.visible { opacity: 1; transform: translateY(0); }
-    section h2 {
-      font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 1rem;
-      font-size: 2.4rem;
-    }
-    section p, section ul {
-      font-size: 1.1rem; line-height: 1.7; color: #3f3024;
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      font-weight: 300;
     }
 
-    .btn {
-      display: inline-block; background: #3b2f23; color: #fff;
-      padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none;
-      font-weight: 500; margin-top: 1rem;
+    footer {
+      border-top: 2px solid #7a3e3e;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #6b4b30;
+      background: #f8f4ec;
     }
-    .btn:hover { background: #5a4331; }
   </style>
 </head>
 <body>
+
   <header>
-    <nav>
-      <a href="#home" style="display:flex; align-items:center; gap:0.5rem;">
-        <img src="logo.jpg" alt="The Gurukul Essence Logo" style="height:65px; border-radius:4px;" />
-<span style="font-family:'Playfair Display', serif; font-size:1.6rem; font-weight:bold; color:#3b2f23;">The Gurukul Essence</span>
-      </a>
-      <div class="toggle-menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
-        <i class="fas fa-bars"></i>
+    <div class="header-brand">
+      <div class="brand-left">
+        <img src="logo.jpg" alt="Logo">
+        <h1>The Gurukul Essence</h1>
       </div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#therapy">Therapy</a>
-        <a href="#philosophy">Philosophy</a>
-        <a href="#services">Services</a>
-        <a href="#experience">Experience</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
+      <div class="contact-info">
+        📧 deepank.yog@gmail.com<br/>
+        📞 +91-9045769190
       </div>
-    </nav>
+    </div>
   </header>
 
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1>THE GURUKUL ESSENCE</h1>
-      <p>Ancient wisdom. Modern healing 🌿</p>
+      <h1>Ancient Wisdom. Modern Healing 🌿</h1>
+      <p>Traditional Yoga and Personal Therapy in the Guru–Shishya Tradition</p>
     </div>
   </section>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p><strong>At The Gurukul Essence</strong>, our foundation lies in the ancient bond of <strong>Guru and Shishya</strong> — a sacred lineage where Yoga is passed down not just by words but through presence, observation, and deep trust.</p>
-    <p>This method is not about certifications or mass classes — it is about awakening, living wisdom, and transformation through a deeply personal relationship between teacher and student. We believe this is the essence of Yoga, not a modern invention but a timeless awakening.</p>
-  </section>
+  <footer>
+    &copy; 2025 The Gurukul Essence – All Rights Reserved
+  </footer>
 
-  <section id="therapy">
-    <h2>Healing Through Yoga</h2>
-    <p>Our therapy-based approach tailors each session to heal the individual — whether you're managing stress, back pain, or anxiety. Yoga Therapy with us is presence-based and life-centered, not performance-driven.</p>
-    <a class="btn" href="#contact">Start Your Healing</a>
-  </section>
-
-  <section id="philosophy">
-    <h2>Yoga Philosophy</h2>
-    <p>Rooted in Patanjali’s Yoga Sutras and the Ashtanga system, we integrate timeless teachings — Yama, Niyama, Asana, Pranayama, Dhyana — into every healing journey. Yoga here is for inner transformation, not certification.</p>
-  </section>
-
-  <section id="services">
-    <h2>Services</h2>
-    <ul>
-      <li>🧘 1-on-1 Yoga Therapy Sessions</li>
-      <li>👥 Group Classes (Offline + Online)</li>
-      <li>🌿 Therapeutic Programs for Lifestyle Disorders</li>
-      <li>🧠 Breathwork and Meditation Training</li>
-    </ul>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-    <ul>
-      <li>Corporate sessions at ONGC Academy, Dehradun</li>
-      <li>Programs at Doon Valley International School</li>
-      <li>Yoga at The Terraces Resort, Kanatal</li>
-      <li>Workshops at Rana Farms Club</li>
-      <li>Years of Online & In-person Healing Practice</li>
-    </ul>
-  </section>
-
-  <section id="reviews">
-    <h2>Student Testimonials</h2>
-    <p>“Each session feels like returning to yourself.” — a participant</p>
-    <p>“More than Yoga, it’s medicine for the soul.”</p>
-    <a class="btn" href="#">Leave a Review</a>
-  </section>
-
-  <section id="contact">
-    <h2>Contact & Bookings</h2>
-    <div style="display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
-      <a href="mailto:deepank.yog@gmail.com" target="_blank" class="btn" title="Email">
-        <i class="fas fa-envelope"></i> Email
-      </a>
-      <a href="https://instagram.com/thegurukulessence" target="_blank" class="btn" title="Instagram">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a href="https://wa.me/919045769190" target="_blank" class="btn" title="WhatsApp">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
-    </div>
-  </section>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('section').forEach(s => observer.observe(s));
-  </script>
 </body>
 </html>
