@@ -48,7 +48,7 @@
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
-      background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(2px); z-index: 1;
+      background: rgba(0, 0, 0, 0.25); backdrop-filter: blur(1px); z-index: 1;
     }
     .hero-content {
       position: relative; z-index: 2; padding: 0 2rem;
@@ -87,7 +87,8 @@
   <header>
     <nav>
       <a href="#home" style="display:flex; align-items:center; gap:0.5rem;">
-        <img src="logo.jpg" alt="The Gurukul Essence Logo" style="height:40px; border-radius:4px;" />
+        <img src="logo.jpg" alt="The Gurukul Essence Logo" style="height:65px; border-radius:4px;" />
+<span style="font-family:'Playfair Display', serif; font-size:1.6rem; font-weight:bold; color:#3b2f23;">The Gurukul Essence</span>
       </a>
       <div class="toggle-menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
         <i class="fas fa-bars"></i>
