@@ -207,6 +207,28 @@
   .contact-link.primary { background: var(--moss); border-color: var(--moss); }
   .contact-link.primary:hover { background: #3a5332; }
 
+  /* Google Review Banner */
+  #google-review {
+    background: var(--white); padding: 4rem 2rem; text-align: center;
+    border-top: 1px solid rgba(74,103,65,0.12);
+  }
+  .google-review-inner { max-width: 680px; margin: 0 auto; }
+  .google-review-inner .section-eyebrow { color: var(--moss); }
+  .google-review-inner .section-title { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+  .google-review-inner p { font-size: 0.95rem; color: var(--stone); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
+  .google-btn {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    padding: 1rem 2.4rem; background: #fff; color: #3c4043;
+    border: 2px solid #dadce0; border-radius: 4px;
+    font-family: 'Jost', sans-serif; font-size: 0.88rem;
+    font-weight: 500; letter-spacing: 0.04em; text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: box-shadow 0.3s, border-color 0.3s;
+  }
+  .google-btn:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.14); border-color: #bbb; }
+  .google-btn svg { flex-shrink: 0; }
+  .google-stars-preview { color: #fbbc04; font-size: 1.3rem; letter-spacing: 4px; margin-bottom: 0.6rem; display: block; }
+  .google-note { font-size: 0.76rem !important; color: var(--stone); opacity: 0.7; margin-top: 1rem !important; margin-bottom: 0 !important; }
+
   footer {
     background: #1e1409; padding: 2rem; text-align: center;
     color: rgba(245,240,232,0.35); font-size: 0.75rem; letter-spacing: 0.06em;
@@ -236,7 +258,7 @@
     <li><a href="#therapy">Therapy</a></li>
     <li><a href="#philosophy">Philosophy</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#google-review">Leave a Review</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -262,7 +284,7 @@
 <section id="about">
   <div class="about-inner">
     <div class="about-img fade-in">
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Yoga in nature"/>
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80" alt="Traditional meditation by the river"/>
     </div>
     <div class="about-text fade-in">
       <p class="section-eyebrow">Our Story</p>
@@ -331,9 +353,7 @@
     </div>
     <div class="exp-list">
       <div class="exp-item fade-in"><div class="exp-dot"></div><div><p>ONGC Academy</p><span>Dehradun, Uttarakhand</span></div></div>
-      <div class="exp-item fade-in"><div class="exp-dot"></div><div><p>The Terraces Resort</p><span>Kanatal, Uttarakhand</span></div></div>
-      <div class="exp-item fade-in"><div class="exp-dot"></div><div><p>Doon Valley International School</p><span>Dehradun</span></div></div>
-      <div class="exp-item fade-in"><div class="exp-dot"></div><div><p>Rana Farms Club</p><span>Corporate & Group Sessions</span></div></div>
+      <div class="exp-item fade-in"><div class="exp-dot"></div><div><p>Power Grid Corporation of India</p><span>Patna, Bihar · Physical, Mental Health & Pranayama</span></div></div>
       <div class="exp-item fade-in"><div class="exp-dot"></div><div><p>Online Yoga Therapy</p><span>Pan India · All Ages</span></div></div>
       <div class="exp-item fade-in"><div class="exp-dot"></div><div><p>In-Person Sessions</p><span>Roorkee · Dehradun & nearby</span></div></div>
     </div>
@@ -345,18 +365,12 @@
     <div class="reviews-header fade-in">
       <p class="section-eyebrow">Student Voices</p>
       <h2 class="section-title">What Our <em>Students</em> Say</h2>
+      <p style="color:var(--stone);font-size:1rem;line-height:1.8;font-weight:300;max-width:520px;margin:0 auto;">Real reviews from our students will appear here soon. We believe in honest, lived experiences — not curated testimonials.</p>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card fade-in">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Sessions with The Gurukul Essence are not just yoga — they are a return to one's center."</blockquote>
-        <p class="reviewer">— Student, Dehradun</p>
-      </div>
-      <div class="review-card fade-in">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Deepank ji's healing approach helped me balance my lifestyle and find inner calm again."</blockquote>
-        <p class="reviewer">— Student, Online Session</p>
-      </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="#google-review" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.85rem 2rem;background:var(--moss);color:#fff;border-radius:2px;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;font-family:'Jost',sans-serif;">
+        ★ Be the First to Leave a Review
+      </a>
     </div>
   </div>
 </section>
@@ -371,6 +385,33 @@
       <a href="mailto:deepank.yog@gmail.com" class="contact-link">✉️ Email Us</a>
       <a href="https://instagram.com/thegurukulessence" class="contact-link">📷 Instagram</a>
     </div>
+  </div>
+</section>
+
+<section id="google-review">
+  <div class="google-review-inner fade-in">
+    <p class="section-eyebrow">Share Your Experience</p>
+    <h2 class="section-title">Loved Your <em>Session?</em></h2>
+    <p>Your kind words help others find their path to healing. If a session with The Gurukul Essence made a difference in your life, we would be deeply grateful for a Google review.</p>
+    <span class="google-stars-preview">★★★★★</span>
+    <a
+      href="https://g.page/r/YOUR_GOOGLE_PLACE_ID/review"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="google-btn"
+      id="googleReviewBtn"
+    >
+      <!-- Google "G" logo -->
+      <svg width="20" height="20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.3 9 3.4l6.7-6.7C35.8 2.5 30.3 0 24 0 14.8 0 6.9 5.4 3 13.3l7.8 6C12.7 13.2 17.9 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.6h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.1z"/>
+        <path fill="#FBBC05" d="M10.8 28.7A14.6 14.6 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.3-6.1z"/>
+        <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.1 0-11.3-3.8-13.2-9.1l-8.3 6.1C6.9 42.6 14.8 48 24 48z"/>
+        <path fill="none" d="M0 0h48v48H0z"/>
+      </svg>
+      Write a Google Review
+    </a>
+    <p class="google-note">⚠️ Replace the review link with your actual Google Business profile URL before publishing.</p>
   </div>
 </section>
 
