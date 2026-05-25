@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Gurukul Essence – Yoga & Therapy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f5f0e8; --bark: #3b2e1e; --moss: #4a6741;
+    --sage: #7a9e6e; --gold: #b8923a; --mist: #e8ede2;
+    --stone: #8c7b6b; --white: #fdfcf8;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--white); color: var(--bark); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 2.5rem;
+    transition: background 0.5s, box-shadow 0.5s;
+  }
+  nav.scrolled {
+    background: rgba(253,252,248,0.93);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 rgba(184,146,58,0.15);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; color: #fff;
+    letter-spacing: 0.04em; display: flex; align-items: center; gap: 10px;
+    transition: color 0.5s;
+  }
+  nav.scrolled .nav-logo { color: var(--bark); }
+  .nav-logo img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 400;
+    transition: color 0.3s; position: relative; padding-bottom: 3px;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 1px; background: var(--gold); transition: width 0.3s;
+  }
+  .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+  nav.scrolled .nav-links a { color: var(--stone); }
+  nav.scrolled .nav-links a:hover { color: var(--moss); }
+
+  /* SIDE DOTS */
+  .side-nav {
+    position: fixed; right: 1.8rem; top: 50%; transform: translateY(-50%);
+    z-index: 150; display: flex; flex-direction: column; gap: 14px;
+  }
+  .side-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,0.35); cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.55);
+    transition: all 0.35s; position: relative;
+  }
+  .side-dot::before {
+    content: attr(title);
+    position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #fff; white-space: nowrap; opacity: 0;
+    transition: opacity 0.3s; pointer-events: none;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  }
+  .side-dot:hover::before { opacity: 1; }
+  .side-dot.active { background: var(--gold); border-color: var(--gold); transform: scale(1.5); }
+  .side-dot.dark { background: rgba(74,103,65,0.3); border-color: rgba(74,103,65,0.4); }
+  .side-dot.dark::before { color: var(--bark); text-shadow: none; }
+  .side-dot.dark.active { background: var(--moss); border-color: var(--moss); }
+  @media (max-width: 768px) { .side-nav { display: none; } }
+
+  /* SECTIONS */
+  .page-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+
+  /* HERO */
+  #hero { text-align: center; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&q=80');
+    background-size: cover; background-position: center 30%;
+    filter: brightness(0.62) saturate(0.85);
+    transform: scale(1.06); transition: transform 9s ease-out;
+  }
+  .hero-bg.loaded { transform: scale(1); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(30,20,10,0.2), rgba(30,20,10,0.65)); }
+  .hero-content { position: relative; z-index: 2; padding: 2rem; max-width: 800px; }
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: rgba(255,235,180,0.9); margin-bottom: 1.4rem; font-weight: 400;
+    opacity: 0; transform: translateY(24px); animation: fadeUp 1s ease 0.4s forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 7vw, 5.2rem); font-weight: 300;
+    line-height: 1.1; color: #fdfcf8; margin-bottom: 1.4rem;
+    opacity: 0; transform: translateY(24px); animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero-title em { font-style: italic; color: #e8d4a0; }
+  .hero-sub {
+    font-size: 1rem; line-height: 1.75; color: rgba(255,252,240,0.82);
+    margin-bottom: 2.5rem; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto;
+    opacity: 0; transform: translateY(24px); animation: fadeUp 1s ease 1s forwards;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    opacity: 0; transform: translateY(24px); animation: fadeUp 1s ease 1.3s forwards;
+  }
+  .btn-primary {
+    padding: 0.9rem 2.4rem; background: var(--gold); color: #fff;
+    border: none; border-radius: 2px; font-family: 'Jost', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer;
+    transition: background 0.3s, transform 0.25s, box-shadow 0.3s;
+    box-shadow: 0 4px 20px rgba(184,146,58,0.4);
+  }
+  .btn-primary:hover { background: #9a7a2e; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(184,146,58,0.5); }
+  .btn-outline {
+    padding: 0.9rem 2.4rem; background: transparent; color: #fdfcf8;
+    border: 1px solid rgba(255,255,255,0.5); border-radius: 2px;
+    font-family: 'Jost', sans-serif; font-size: 0.78rem;
+    letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+  .scroll-hint {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.45); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp 1s ease 2s forwards;
+  }
+  .scroll-line {
+    width: 1px; height: 44px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+    animation: scrollPulse 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+  /* SHARED */
+  .section-eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--moss); margin-bottom: 1rem; font-weight: 500; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.2; color: var(--bark); margin-bottom: 1.5rem; }
+  .section-title em { font-style: italic; color: var(--moss); }
+
+  /* ABOUT */
+  #about { background: var(--white); padding: 6rem 2rem; position: relative; }
+  #about::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&q=80');
+    background-size: cover; background-position: center; background-attachment: fixed;
+    opacity: 0.07; pointer-events: none;
+  }
+  .about-inner { max-width: 1100px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 1; }
+  .about-img { position: relative; }
+  .about-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
+  .about-img::after { content: ''; position: absolute; bottom: -16px; right: -16px; width: 60%; height: 60%; border: 2px solid var(--sage); border-radius: 2px; z-index: -1; }
+  .about-text p { font-size: 1rem; line-height: 1.9; color: var(--stone); margin-bottom: 1.2rem; font-weight: 300; }
+  .about-quote { border-left: 2px solid var(--gold); padding-left: 1.4rem; margin: 2rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--bark); line-height: 1.6; }
+
+  /* NATURE DIVIDER */
+  .nature-divider {
+    height: 55vh; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nature-divider .nd-bg {
+    position: absolute; inset: 0; background-size: cover; background-position: center;
+    background-attachment: fixed; transition: transform 0.1s linear;
+  }
+  .nature-divider .nd-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(20,30,10,0.35), rgba(20,30,10,0.55));
+  }
+  .nature-divider .nd-text {
+    position: relative; z-index: 2; text-align: center; padding: 2rem;
+  }
+  .nature-divider .nd-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 4vw, 2.8rem); font-style: italic; font-weight: 300;
+    color: rgba(255,252,240,0.92); line-height: 1.5;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .nature-divider .nd-text span {
+    display: block; font-size: 0.72rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: rgba(200,230,160,0.85);
+    margin-bottom: 1rem; font-family: 'Jost', sans-serif; font-weight: 400;
+  }
+
+  /* THERAPY */
+  #therapy { background: var(--mist); padding: 7rem 2rem; align-items: flex-start; }
+  .therapy-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+  .therapy-header { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
+  .therapy-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+  @media (max-width: 900px) { .therapy-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px) { .therapy-grid { grid-template-columns: 1fr; } }
+  .therapy-card { background: var(--white); padding: 2.5rem 2rem; transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s; }
+  .therapy-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(59,46,30,0.09); }
+  .therapy-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
+  .therapy-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--bark); margin-bottom: 0.7rem; }
+  .therapy-card p { font-size: 0.88rem; color: var(--stone); line-height: 1.75; font-weight: 300; }
+
+  /* PHILOSOPHY */
+  #philosophy { position: relative; min-height: 100vh; text-align: center; }
+  .phil-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&q=80'); background-size: cover; background-position: center; background-attachment: fixed; filter: brightness(0.45) saturate(0.7); }
+  .phil-overlay { position: absolute; inset: 0; background: rgba(15,25,10,0.5); }
+  .phil-content { position: relative; z-index: 2; max-width: 760px; padding: 2rem; }
+  .phil-content .section-eyebrow { color: rgba(180,220,160,0.9); }
+  .phil-content .section-title { color: #fdfcf8; font-size: clamp(2.2rem,5vw,3.5rem); }
+  .phil-content .section-title em { color: #c8dfa0; }
+  .phil-content p { color: rgba(240,248,230,0.82); font-size: 1.05rem; line-height: 1.9; font-weight: 300; margin-bottom: 1.2rem; }
+  .pillars { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem; }
+  .pillar { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 2px; padding: 0.9rem 1.5rem; color: rgba(240,248,230,0.9); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.3s, border-color 0.3s; }
+  .pillar:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.35); }
+
+  /* EXPERIENCE */
+  #experience { background: var(--white); padding: 6rem 2rem; position: relative; }
+  #experience::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=80');
+    background-size: cover; background-position: center; background-attachment: fixed;
+    opacity: 0.06; pointer-events: none;
+  }
+  .exp-inner { max-width: 900px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+  .exp-header { text-align: center; margin-bottom: 4rem; }
+  .exp-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1.5rem; }
+  .exp-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.8rem; border: 1px solid rgba(74,103,65,0.15); border-radius: 2px; transition: border-color 0.3s, box-shadow 0.3s, transform 0.35s; }
+  .exp-item:hover { border-color: var(--moss); box-shadow: 0 8px 28px rgba(74,103,65,0.1); transform: translateY(-4px); }
+  .exp-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--moss); margin-top: 7px; flex-shrink: 0; }
+  .exp-item p { font-size: 0.9rem; color: var(--bark); font-weight: 500; }
+  .exp-item span { font-size: 0.78rem; color: var(--stone); display: block; margin-top: 4px; }
+
+  /* REVIEWS */
+  #reviews { background: var(--mist); min-height: auto; padding: 5rem 2rem; }
+  .reviews-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+
+  /* CONTACT */
+  #contact { background: var(--bark); padding: 6rem 2rem; text-align: center; }
+  #contact::before { content: ''; position: absolute; top: -30%; left: -10%; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(74,103,65,0.12) 0%, transparent 70%); pointer-events: none; }
+  .contact-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+  .contact-inner .section-eyebrow { color: var(--sage); }
+  .contact-inner .section-title { color: var(--cream); }
+  .contact-inner .section-title em { color: var(--sage); }
+  .contact-inner p { color: rgba(245,240,232,0.7); font-size: 1rem; line-height: 1.8; font-weight: 300; margin-bottom: 3rem; }
+  .contact-links { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.95rem 1.8rem; border: 1px solid rgba(245,240,232,0.22); border-radius: 2px; color: var(--cream); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.35s cubic-bezier(.25,.46,.45,.94); }
+  .contact-link:hover { background: rgba(255,255,255,0.08); border-color: rgba(245,240,232,0.5); transform: translateY(-3px); }
+  .contact-link.primary { background: var(--moss); border-color: var(--moss); }
+  .contact-link.primary:hover { background: #3a5332; box-shadow: 0 8px 24px rgba(74,103,65,0.4); }
+
+  footer { background: #130c04; padding: 2rem; text-align: center; color: rgba(245,240,232,0.28); font-size: 0.75rem; letter-spacing: 0.08em; }
+
+  /* REVEAL ANIMATIONS */
+  .reveal { opacity: 0; transform: translateY(44px); transition: opacity 0.9s cubic-bezier(.25,.46,.45,.94), transform 0.9s cubic-bezier(.25,.46,.45,.94); }
+  .reveal.from-left { transform: translateX(-44px); }
+  .reveal.from-right { transform: translateX(44px); }
+  .reveal.visible { opacity: 1; transform: translate(0,0); }
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+  .delay-4 { transition-delay: 0.4s; }
+  .delay-5 { transition-delay: 0.5s; }
+  .delay-6 { transition-delay: 0.6s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.2rem; }
+    .nav-links { display: none; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .phil-bg { background-attachment: scroll; }
+    #about, #experience, #contact { padding: 5rem 1.2rem; }
+    #therapy { padding: 5rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="nav-logo">
+    <img src="https://www.thegurukulessence.com/logo.jpg" alt="Logo" onerror="this.style.display='none'"/>
+    The Gurukul Essence
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#therapy">Therapy</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="side-nav" id="sideNav">
+  <div class="side-dot active" data-target="hero" title="Home"></div>
+  <div class="side-dot dark" data-target="about" title="About"></div>
+  <div class="side-dot dark" data-target="therapy" title="Therapy"></div>
+  <div class="side-dot" data-target="philosophy" title="Philosophy"></div>
+  <div class="side-dot dark" data-target="experience" title="Experience"></div>
+  <div class="side-dot" data-target="contact" title="Contact"></div>
+</div>
+
+<section id="hero" class="page-section">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Rooted in the Himalayan Tradition</p>
+    <h1 class="hero-title">Ancient Wisdom.<br/><em>Modern Healing.</em></h1>
+    <p class="hero-sub">Yoga therapy & transformation through the sacred Guru–Shishya bond — where nature, breath, and self converge.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Begin Your Journey</a>
+      <a href="#therapy" class="btn-outline">Explore Therapy</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<section id="about" class="page-section">
+  <div class="about-inner">
+    <div class="about-img reveal from-left">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80" alt="Traditional meditation by the river"/>
+    </div>
+    <div class="about-text reveal from-right">
+      <p class="section-eyebrow">Our Story</p>
+      <h2 class="section-title">Yoga is not taught —<br/><em>it is transmitted.</em></h2>
+      <p>The Gurukul Essence revives the timeless practice of Traditional Yoga through the sacred Guru–Shishya bond. Here, knowledge flows not through books, but through presence, breath, and lived experience.</p>
+      <blockquote class="about-quote">"Here, Yoga is not taught — it is transmitted, lived, and internalized through presence and guidance."</blockquote>
+      <p>Every session honors the ancient lineage while meeting you exactly where you are — body, mind, and spirit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NATURE DIVIDER 1: Sunlight through forest -->
+<div class="nature-divider">
+  <div class="nd-bg" style="background-image:url('https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=1600&q=80');"></div>
+  <div class="nd-overlay"></div>
+  <div class="nd-text reveal">
+    <span>The Path Within</span>
+    <p>"Breath is the bridge which connects life<br/>to consciousness."</p>
+  </div>
+</div>
+
+<section id="therapy" class="page-section">
+  <div class="therapy-inner">
+    <div class="therapy-header reveal">
+      <p class="section-eyebrow">Healing Modalities</p>
+      <h2 class="section-title">Personalized <em>Yoga Therapy</em></h2>
+      <p style="color:var(--stone);font-size:1rem;line-height:1.8;font-weight:300;">Each session is crafted with ancient techniques tailored to your individual needs — not a class, a conversation with your own body.</p>
+    </div>
+    <div class="therapy-grid">
+      <div class="therapy-card reveal delay-1"><span class="therapy-icon">🌬️</span><h3>Pranayama & Breathwork</h3><p>Ancient breathing techniques — Anulom Vilom, Kapalbhati, Bhramari — to purify the nadis, calm the mind, and strengthen the vital life force (prana).</p></div>
+      <div class="therapy-card reveal delay-2"><span class="therapy-icon">🧠</span><h3>Mental Health & Mindfulness</h3><p>Guided practices for stress, anxiety, and emotional balance using yogic meditation, dharana, and pratyahara — reconnecting you to inner stillness.</p></div>
+      <div class="therapy-card reveal delay-3"><span class="therapy-icon">🌿</span><h3>Physical Health & Pain Relief</h3><p>Therapeutic asana sequences addressing chronic pain, spine issues, joint stiffness, and postural imbalances through gentle, root-cause healing.</p></div>
+      <div class="therapy-card reveal delay-4"><span class="therapy-icon">🌙</span><h3>Yoga Nidra & Deep Rest</h3><p>The ancient science of yogic sleep — a deeply restorative practice that heals the nervous system, dissolves stress patterns, and restores energy.</p></div>
+      <div class="therapy-card reveal delay-5"><span class="therapy-icon">🏢</span><h3>Corporate Wellness</h3><p>On-site and online wellness sessions for organizations — covering breathwork, mindfulness, and movement to boost focus, morale, and team wellbeing.</p></div>
+      <div class="therapy-card reveal delay-6"><span class="therapy-icon">☀️</span><h3>Lifestyle & Holistic Balance</h3><p>Personalized programs aligning sleep, digestion, energy, and daily rhythm through yogic living — grounded in Ayurveda and Patanjali's teachings.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="philosophy" class="page-section">
+  <div class="phil-bg"></div>
+  <div class="phil-overlay"></div>
+  <div class="phil-content reveal">
+    <p class="section-eyebrow">Our Philosophy</p>
+    <h2 class="section-title">Inner <em>Transformation</em><br/>over Outer Performance</h2>
+    <p>Inspired by Patanjali's Yoga Sutras, Ashtanga Yoga, and timeless Himalayan lineages — our approach honors the depth of the practice, not the aesthetics of the pose.</p>
+    <p>We believe every human being carries an innate wisdom. Yoga is simply the art of listening to it.</p>
+    <div class="pillars">
+      <div class="pillar">Patanjali's Yoga Sutras</div>
+      <div class="pillar">Ashtanga Yoga</div>
+      <div class="pillar">Himalayan Lineage</div>
+      <div class="pillar">Guru–Shishya Parampara</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="page-section">
+  <div class="exp-inner">
+    <div class="exp-header reveal">
+      <p class="section-eyebrow">Where We've Practiced</p>
+      <h2 class="section-title">Carried by <em>Experience</em></h2>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item reveal delay-1"><div class="exp-dot"></div><div><p>ONGC Academy</p><span>Dehradun, Uttarakhand · Yoga & Wellness Training for ONGC Trainees</span></div></div>
+      <div class="exp-item reveal delay-2"><div class="exp-dot"></div><div><p>Power Grid Corporation of India</p><span>Patna, Bihar · Physical, Mental Health & Pranayama</span></div></div>
+      <div class="exp-item reveal delay-3"><div class="exp-dot"></div><div><p>Police Headquarters, Dehradun</p><span>Uttarakhand Police · Yoga & Wellness Sessions for Police Personnel</span></div></div>
+      <div class="exp-item reveal delay-4"><div class="exp-dot"></div><div><p>Doon Group of Colleges, Dehradun</p><span>Uttarakhand · Campus Wellness & Student Health Program</span></div></div>
+      <div class="exp-item reveal delay-5"><div class="exp-dot"></div><div><p>Online Yoga Therapy</p><span>Pan India & International · All Ages · One-on-One & Group Sessions</span></div></div>
+      <div class="exp-item reveal delay-6"><div class="exp-dot"></div><div><p>In-Person Sessions</p><span>Roorkee · Dehradun & nearby</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NATURE DIVIDER 2: Misty Himalayan forest -->
+<div class="nature-divider">
+  <div class="nd-bg" style="background-image:url('https://images.unsplash.com/photo-1511497584788-876760111969?w=1600&q=80');"></div>
+  <div class="nd-overlay"></div>
+  <div class="nd-text reveal">
+    <span>Rooted in Nature</span>
+    <p>"In every walk with nature,<br/>one receives far more than he seeks."</p>
+  </div>
+</div>
+
+<section id="reviews" class="page-section" style="min-height:auto;background:var(--mist);padding:5rem 2rem;">
+  <div class="reviews-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Student Voices</p>
+      <h2 class="section-title">What Our <em>Students</em> Say</h2>
+      <p style="color:var(--stone);font-size:1rem;line-height:1.8;font-weight:300;max-width:520px;margin:0 auto;">Real reviews from our students will appear here soon. We believe in honest, lived experiences — not curated testimonials.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="page-section">
+  <div class="contact-inner reveal">
+    <p class="section-eyebrow">Begin Today</p>
+    <h2 class="section-title">Start Your<br/><em>Healing Journey</em></h2>
+    <p>Reach out to inquire about personalized sessions, group programs, or corporate wellness. Every conversation begins with listening.</p>
+    <div class="contact-links">
+      <a href="https://wa.me/919045769190" class="contact-link primary">📱 WhatsApp</a>
+      <a href="mailto:deepank.yog@gmail.com" class="contact-link">✉️ Email Us</a>
+      <a href="https://instagram.com/thegurukulessence" class="contact-link">📷 Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 The Gurukul Essence – All Rights Reserved</footer>
+
+<script>
+// Hero background zoom on load
+window.addEventListener('load', () => document.getElementById('heroBg').classList.add('loaded'));
+
+const nav = document.getElementById('mainNav');
+const navLinks = document.querySelectorAll('.nav-links a');
+const sideDots = document.querySelectorAll('.side-dot');
+const sections = ['hero','about','therapy','philosophy','experience','contact'];
+
+// Nav + side dots on scroll
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  updateActive();
+});
+
+function updateActive() {
+  let current = 'hero';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - window.innerHeight * 0.45) current = id;
+  });
+  // Nav links
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+  // Side dots
+  sideDots.forEach(dot => dot.classList.toggle('active', dot.dataset.target === current));
+}
+
+// Side dot click
+sideDots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    document.getElementById(dot.dataset.target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Smooth scroll for all links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Reveal on scroll
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
